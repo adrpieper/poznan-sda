@@ -20,7 +20,7 @@
         android:name="com.example.md.adrian.masterdetail.DetailFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:layout="@layout/master_layout" />
+        android:layout_weight="2"
+        tools:layout="@layout/detail_layout" />
 
 </LinearLayout>
