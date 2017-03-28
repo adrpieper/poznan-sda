@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/fragment2"
+        android:id="@+id/masterFragment"
         android:name="com.example.md.adrian.masterdetail.MasterFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

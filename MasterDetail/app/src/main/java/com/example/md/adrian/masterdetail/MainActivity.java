@@ -3,6 +3,7 @@ package com.example.md.adrian.masterdetail;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 
 public class MainActivity extends Activity {
@@ -16,14 +17,23 @@ public class MainActivity extends Activity {
     }
 
     public void showBasicData() {
-        FragmentManager fm = getFragmentManager();
-        DetailFragment detailFragment = (DetailFragment) fm.findFragmentById(R.id.detailFragment);
-        detailFragment.showBasicData();
+        DetailFragment detailFragment = getDetailFragment();
+        if (detailFragment != null) {
+            detailFragment.showBasicData();
+        }
+        else {
+            Intent intent = new Intent(this, DetailActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void showDetailsData() {
-        FragmentManager fm = getFragmentManager();
-        DetailFragment detailFragment = (DetailFragment) fm.findFragmentById(R.id.detailFragment);
+        DetailFragment detailFragment = getDetailFragment();
         detailFragment.showDetailsData();
+    }
+
+    private DetailFragment getDetailFragment() {
+        FragmentManager fm = getFragmentManager();
+        return (DetailFragment) fm.findFragmentById(R.id.detailFragment);
     }
 }
