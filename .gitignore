@@ -1,8 +1,4 @@
 # Built application files
-*gradlew.bat
-*gradle.properties
-*gradlew
-*gradle
 *.idea
 *.apk
 *.ap_
@@ -19,6 +15,10 @@ gen/
 out/
 
 # Gradle files
+*/gradle/wrapper
+*gradlew.bat
+*gradle.properties
+*gradlew
 .gradle/
 build/
 
