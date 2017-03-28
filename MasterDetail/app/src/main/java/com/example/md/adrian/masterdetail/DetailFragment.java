@@ -19,15 +19,11 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.detail_layout, container);
+
+        titleTextView = (TextView) view.findViewById(R.id.titleTextView);
+        detailsTextView = (TextView) view.findViewById(R.id.detailsTextView);
+
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        titleTextView = (TextView) getView().findViewById(R.id.titleTextView);
-        detailsTextView = (TextView) getView().findViewById(R.id.detailsTextView);
-
     }
 
     public void showBasicData() {

@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
     public void showBasicData() {
         DetailFragment detailFragment = getDetailFragment();
-        if (detailFragment != null) {
+        if (detailFragment != null && detailFragment.isInLayout()) {
             detailFragment.showBasicData();
         }
         else {
