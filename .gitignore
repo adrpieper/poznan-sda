@@ -1,4 +1,9 @@
 # Built application files
+*gradlew.bat
+*gradle.properties
+*gradlew
+*gradle
+*.idea
 *.apk
 *.ap_
 
