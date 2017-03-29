@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
             detailFragment.showBasicData();
         }
         else {
+            //Uruchamiał nową aktywność
             Intent intent = new Intent(this, DetailActivity.class);
             startActivity(intent);
         }
