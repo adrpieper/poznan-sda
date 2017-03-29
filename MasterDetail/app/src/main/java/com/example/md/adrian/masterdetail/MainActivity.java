@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
         else {
             //Uruchamiał nową aktywność
             Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtra("nazwa", 1);
             startActivity(intent);
         }
     }
