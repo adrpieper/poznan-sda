@@ -16,4 +16,10 @@ public class MainActivity extends Activity {
         transaction.add(R.id.fragmentFrame, new CurrencyCalculatorFragment());
         transaction.commit();
     }
+
+    public void showCurrencyCalculator() {
+    }
+
+    public void showInvestmentButton() {
+    }
 }
