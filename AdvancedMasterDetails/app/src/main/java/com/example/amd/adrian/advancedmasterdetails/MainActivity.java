@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
 
         //Podmiana fragmentów
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentFrame, new CurrencyCalculatorFragment());
+        transaction.add(R.id.fragmentFrame, new CurrencyCalculatorFragment());
         transaction.commit();
     }
 }
