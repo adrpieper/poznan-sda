@@ -2,6 +2,7 @@ package com.example.amd.adrian.advancedmasterdetails;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 
 public class MainActivity extends Activity {
@@ -11,19 +12,29 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showCurrencyCalculator();
+        //showCurrencyCalculator();
 
     }
 
     public void showCurrencyCalculator() {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentFrame, new CurrencyCalculatorFragment());
-        transaction.commit();
+        if (findViewById(R.id.fragmentFrame) != null) {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentFrame, new CurrencyCalculatorFragment());
+            transaction.commit();
+        }else {
+            Intent intent = new Intent(this, CurrencyCalculatorActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void showInvestmentButton() {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentFrame, new InvestmentFragment());
-        transaction.commit();
+        if (findViewById(R.id.fragmentFrame) != null) {
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragmentFrame, new InvestmentFragment());
+            transaction.commit();
+        }else {
+            Intent intent = new Intent(this, InvestmentActivity.class);
+            startActivity(intent);
+        }
     }
 }
