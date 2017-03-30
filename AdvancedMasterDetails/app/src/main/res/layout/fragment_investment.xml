@@ -3,15 +3,21 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/investment" />
+
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/amountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberSigned" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/yearsEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,9 +30,10 @@
         android:text="Button" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/resultEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:editable="false"
         android:ems="10"
         android:inputType="numberDecimal" />
 
