@@ -11,15 +11,19 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Podmiana fragmentów
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.add(R.id.fragmentFrame, new CurrencyCalculatorFragment());
-        transaction.commit();
+        showCurrencyCalculator();
+
     }
 
     public void showCurrencyCalculator() {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentFrame, new CurrencyCalculatorFragment());
+        transaction.commit();
     }
 
     public void showInvestmentButton() {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentFrame, new InvestmentFragment());
+        transaction.commit();
     }
 }

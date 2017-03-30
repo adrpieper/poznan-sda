@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AdvancedMasterDetails</string>
+    <string name="label_name">Adrian Pieper</string>
+    <string name="currency_calculator">Kalkulator Walut</string>
 </resources>
