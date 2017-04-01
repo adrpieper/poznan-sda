@@ -1,5 +1,7 @@
 package com.example.ps.adrian.personslist;
 
+import android.app.Activity;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,6 @@ import java.util.List;
 public class PersonProvider {
 
     public List<Person> provide() {
-        return null;
+        throw new RuntimeException("Metoda nie zaimplementowan");
     }
 }

@@ -18,7 +18,7 @@ public class PersonProviderTest {
         PersonProvider provider = new PersonProvider();
         List<Person> result = provider.provide();
         //Assertions TODO
-
+        assert result.size() == 3;
     }
 
 }
