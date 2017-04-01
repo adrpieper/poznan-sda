@@ -25,10 +25,7 @@ public class MasterFragment extends Fragment {
         currencyCalculatorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //activity.showCurrencyCalculator();
-
-                Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.simple_animation);
-                currencyCalculatorButton.startAnimation(animation);
+                activity.showCurrencyCalculator();
             }
         });
         investmentButton.setOnClickListener(new View.OnClickListener() {
