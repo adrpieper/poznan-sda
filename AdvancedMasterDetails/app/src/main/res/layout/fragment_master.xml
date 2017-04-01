@@ -7,11 +7,11 @@
         android:id="@+id/currencyCalculatorButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/currency_calculator" />
 
     <Button
         android:id="@+id/investmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="@string/investment" />
 </LinearLayout>
