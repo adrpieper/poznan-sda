@@ -30,6 +30,7 @@ public class MainActivity extends Activity {
     public void showInvestmentButton() {
         if (findViewById(R.id.fragmentFrame) != null) {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.animator.fragment_in, R.animator.fragment_out);
             transaction.replace(R.id.fragmentFrame, new InvestmentFragment());
             transaction.commit();
         }else {
