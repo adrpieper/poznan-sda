@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -14,6 +16,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        PersonProvider provider = new PersonProvider();
+        List<Person> persons = provider.provide();
+        PersonAdapter personAdapter = new PersonAdapter(persons);
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(personAdapter);
     }
 
     private class PersonAdapter extends BaseAdapter {
@@ -26,12 +34,12 @@ public class MainActivity extends Activity {
 
         @Override
         public int getCount() {
-            return 0;
+            return persons.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return persons.get(position);
         }
 
         @Override
@@ -41,7 +49,17 @@ public class MainActivity extends Activity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+            TextView textView;
+            if (convertView != null) {
+                textView = (TextView) convertView;
+            }
+            else {
+                textView = new TextView(MainActivity.this);
+            }
+            Person person = persons.get(position);
+            textView.setText((position+1)+" "+person.toString());
+
+            return textView;
         }
     }
 }
