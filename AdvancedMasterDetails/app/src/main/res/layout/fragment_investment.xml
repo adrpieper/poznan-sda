@@ -37,4 +37,10 @@
         android:ems="10"
         android:inputType="numberDecimal" />
 
+
+    <com.example.amd.adrian.advancedmasterdetails.MyButton
+        id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
