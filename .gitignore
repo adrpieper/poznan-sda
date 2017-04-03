@@ -15,7 +15,7 @@ gen/
 out/
 
 # Gradle files
-*/gradle/wrapper
+gradle-wrapper.jar
 *gradlew.bat
 *gradle.properties
 *gradlew
