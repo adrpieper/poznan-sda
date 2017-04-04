@@ -19,46 +19,35 @@ public class ViewPagerFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        // () -> new FragmentTriangle()
-        ViewPager viewPager = new ViewPager(getContext());
-        viewPager.setAdapter(
-                new MyAdapter(
-                        getFragmentManager(),
-                        FragmentTriangle.class,
-                        FragmentCircle.class,
-                        FragmentRectangle.class
-                ));
 
+        ViewPager viewPager = new ViewPager(getContext());
+        viewPager.setAdapter(new MyAdapter(getFragmentManager()));
         return viewPager;
     }
 
     private class MyAdapter extends FragmentPagerAdapter {
 
-        public final Class<? extends Fragment>[] factories;
+        public static final int NUMBER_OF_PAGES = 3;
 
-        public MyAdapter(FragmentManager fm, Class<? extends Fragment>... factories) {
+        public MyAdapter(FragmentManager fm) {
             super(fm);
-            this.factories = factories;
         }
 
         @Override
         public Fragment getItem(int position) {
-            try {
-                return factories[position].newInstance();
-            } catch (java.lang.InstantiationException e) {
-                return null;
-            } catch (IllegalAccessException e) {
-                return null;
+            if (position == 0) {
+                return new FragmentCircle();
             }
+            if (position == 1) {
+                return new FragmentRectangle();
+            }
+
+            return new FragmentTriangle();
         }
 
         @Override
         public int getCount() {
-            return factories.length;
+            return NUMBER_OF_PAGES;
         }
-    }
-
-    public interface FragmentFactory {
-        Fragment create();
     }
 }
