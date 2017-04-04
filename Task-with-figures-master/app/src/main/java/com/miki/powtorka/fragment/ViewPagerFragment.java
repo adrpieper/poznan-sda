@@ -21,11 +21,13 @@ public class ViewPagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         ViewPager viewPager = new ViewPager(getContext());
-
+        viewPager.setAdapter(new MyAdapter(getFragmentManager()));
         return viewPager;
     }
 
     private class MyAdapter extends FragmentPagerAdapter {
+
+        public static final int NUMBER_OF_PAGES = 3;
 
         public MyAdapter(FragmentManager fm) {
             super(fm);
@@ -33,12 +35,19 @@ public class ViewPagerFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            return null;
+            if (position == 0) {
+                return new FragmentCircle();
+            }
+            if (position == 1) {
+                return new FragmentRectangle();
+            }
+
+            return new FragmentTriangle();
         }
 
         @Override
         public int getCount() {
-            return 0;
+            return NUMBER_OF_PAGES;
         }
     }
 }
