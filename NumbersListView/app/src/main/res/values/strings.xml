@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Numbers ListView</string>
+    <string name="add_number">Dodaj liczbę</string>
 </resources>
