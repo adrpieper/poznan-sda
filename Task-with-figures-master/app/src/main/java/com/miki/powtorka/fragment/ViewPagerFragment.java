@@ -21,40 +21,35 @@ public class ViewPagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         // () -> new FragmentTriangle()
         ViewPager viewPager = new ViewPager(getContext());
-        viewPager.setAdapter(new MyAdapter(getFragmentManager(),
+        viewPager.setAdapter(
+                new MyAdapter(
+                        getFragmentManager(),
+                        FragmentTriangle.class,
+                        FragmentCircle.class,
+                        FragmentRectangle.class
+                ));
 
-                new FragmentFactory() {
-                    @Override
-                    public Fragment create() {
-                        return new FragmentTriangle();
-                    }
-                }, new FragmentFactory() {
-                    @Override
-                    public Fragment create() {
-                        return new FragmentRectangle();
-                    }
-                }, new FragmentFactory() {
-                    @Override
-                    public Fragment create() {
-                        return new FragmentCircle();
-                    }
-                })
-        );
         return viewPager;
     }
 
     private class MyAdapter extends FragmentPagerAdapter {
 
-        public final FragmentFactory[] factories;
+        public final Class<? extends Fragment>[] factories;
 
-        public MyAdapter(FragmentManager fm, FragmentFactory... factories) {
+        public MyAdapter(FragmentManager fm, Class<? extends Fragment>... factories) {
             super(fm);
             this.factories = factories;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return factories[position].create();
+            try {
+                return factories[position].newInstance();
+            } catch (java.lang.InstantiationException e) {
+                return null;
+            } catch (IllegalAccessException e) {
+                return null;
+            }
         }
 
         @Override
