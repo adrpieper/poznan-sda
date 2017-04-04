@@ -10,16 +10,16 @@ import com.miki.powtorka.calculations.Calculations;
 public class FragmentTriangle extends BaseShapeFragment {
 
     public FragmentTriangle() {
-        super(2, R.drawable.triangle_image,new String[]{"a","h"});
+        super(1, R.drawable.triangle_image,"a");
     }
 
     @Override
     double getCircuit(Calculations calculations) {
-        return 0;
+        return calculations.triangleCircuit(valueOfField(0));
     }
 
     @Override
     double getArea(Calculations calculations) {
-        return 0;
+        return calculations.triangleArea(valueOfField(0));
     }
 }

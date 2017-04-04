@@ -27,7 +27,7 @@ public class Calculations {
         return a+a+b+b;
     }
 
-    public double triangleArea (double a, double h){
+    public double triangleArea (double a){
         return a*a*sqrt(3)/2;
     }
 
