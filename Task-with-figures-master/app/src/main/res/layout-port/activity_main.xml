@@ -7,7 +7,7 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.miki.powtorka.fragment.MasterFragment"
+        android:name="com.miki.powtorka.fragment.ViewPagerFragment"
         android:id="@+id/fragment"
         tools:layout="@layout/master_fragment" />
 </LinearLayout>
