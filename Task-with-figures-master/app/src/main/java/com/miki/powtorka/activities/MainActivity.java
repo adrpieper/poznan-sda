@@ -2,27 +2,35 @@ package com.miki.powtorka.activities;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.miki.powtorka.R;
 import com.miki.powtorka.fragment.FragmentCircle;
 import com.miki.powtorka.fragment.FragmentRectangle;
 import com.miki.powtorka.fragment.FragmentTriangle;
-import com.miki.powtorka.fragment.BaseShapeFragment;
+import com.miki.powtorka.fragment.MasterFragment;
 
 public class MainActivity extends Activity {
 
-
-
-    FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setAdapterIfViewPagerExists();
+    }
+
+    private void setAdapterIfViewPagerExists() {
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        if (viewPager != null) {
+            viewPager.setAdapter(new MyAdapter(getFragmentManager()));
+        }
     }
 
     public void showCircleCalculation() {
@@ -53,11 +61,8 @@ public class MainActivity extends Activity {
         }
     }
 
-
-
-
     private void transactionForFragment(Fragment fragment ) {
-        transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.frameFragment, fragment);
         transaction.commit();
     }
@@ -65,5 +70,30 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, ViewFragmentActivity.class);
         intent.putExtra("MenuPick", menuPick);
         startActivity(intent);
+    }
+
+    private class MyAdapter extends FragmentPagerAdapter {
+
+        public static final int NUMBER_OF_PAGES = 3;
+        private final int[] names = {R.string.circle, R.string.rectangle, R.string.triangle};
+
+        public MyAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return new MasterFragment();
+        }
+
+        @Override
+        public int getCount() {
+            return NUMBER_OF_PAGES;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return getString(names[position]);
+        }
     }
 }
