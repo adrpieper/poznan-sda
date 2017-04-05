@@ -31,18 +31,21 @@
         android:id="@+id/maxTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/minTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/meanTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="24dp" />
 
 </LinearLayout>
