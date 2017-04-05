@@ -34,9 +34,18 @@ public class MainActivity extends Activity {
 
         numbers = generateNumbers();
 
-        NumberAdapter numberAdapter = new NumberAdapter(numbers);
+        final NumberAdapter numberAdapter = new NumberAdapter(numbers);
         numbersListView.setAdapter(numberAdapter);
         calculateFields();
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                numberAdapter.notifyDataSetChanged();
+            }
+        });
+
     }
 
     private void calculateFields() {
