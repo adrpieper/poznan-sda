@@ -15,6 +15,11 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
+    private TextView maxTextView;
+    private TextView minTextView;
+    private TextView meanTextView;
+    private List<Integer> numbers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +28,29 @@ public class MainActivity extends Activity {
         EditText editText = (EditText) findViewById(R.id.editText);
         ListView numbersListView = (ListView) findViewById(R.id.numbersListView);
         Button addButton = (Button) findViewById(R.id.addButton);
-        TextView maxTextView = (TextView) findViewById(R.id.maxTextView);
-        TextView minTextView = (TextView) findViewById(R.id.minTextView);
-        TextView meanTextView = (TextView) findViewById(R.id.meanTextView);
+        maxTextView = (TextView) findViewById(R.id.maxTextView);
+        minTextView = (TextView) findViewById(R.id.minTextView);
+        meanTextView = (TextView) findViewById(R.id.meanTextView);
 
-        List<Integer> numbers = generateNumbers();
+        numbers = generateNumbers();
 
         NumberAdapter numberAdapter = new NumberAdapter(numbers);
         numbersListView.setAdapter(numberAdapter);
+        calculateFields();
+    }
+
+    private void calculateFields() {
+        if (numbers.isEmpty()) {
+            minTextView.setText("-");
+            maxTextView.setText("-");
+        }else {
+            int minValue = Statistics.min(numbers);
+            minTextView.setText(String.valueOf(minValue));
+            int maxValue = Statistics.max(numbers);
+            maxTextView.setText(String.valueOf(maxValue));
+        }
+        double meanValue = Statistics.mean(numbers);
+        meanTextView.setText(String.valueOf(meanValue));
     }
 
     private List<Integer> generateNumbers() {
