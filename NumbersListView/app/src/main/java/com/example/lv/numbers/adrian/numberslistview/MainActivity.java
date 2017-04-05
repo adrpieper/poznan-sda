@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText editText = (EditText) findViewById(R.id.editText);
+        final EditText editText = (EditText) findViewById(R.id.editText);
         ListView numbersListView = (ListView) findViewById(R.id.numbersListView);
         Button addButton = (Button) findViewById(R.id.addButton);
         maxTextView = (TextView) findViewById(R.id.maxTextView);
@@ -42,7 +42,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                numberAdapter.notifyDataSetChanged();
+                String stringValue = editText.getText().toString();
+                try{
+                    int value = Integer.parseInt(stringValue);
+                    numbers.add(value);
+                    numberAdapter.notifyDataSetChanged();
+                    editText.setText("");
+                    calculateFields();
+                }catch (NumberFormatException e) {}
             }
         });
 
