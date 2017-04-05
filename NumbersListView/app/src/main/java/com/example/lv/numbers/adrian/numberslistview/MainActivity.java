@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends Activity {
@@ -33,6 +35,7 @@ public class MainActivity extends Activity {
         meanTextView = (TextView) findViewById(R.id.meanTextView);
 
         numbers = generateNumbers();
+        Collections.sort(numbers);
 
         final NumberAdapter numberAdapter = new NumberAdapter(numbers);
         numbersListView.setAdapter(numberAdapter);
@@ -46,8 +49,9 @@ public class MainActivity extends Activity {
                 try{
                     int value = Integer.parseInt(stringValue);
                     numbers.add(value);
-                    numberAdapter.notifyDataSetChanged();
+                    Collections.sort(numbers);
                     editText.setText("");
+                    numberAdapter.notifyDataSetChanged();
                     calculateFields();
                 }catch (NumberFormatException e) {}
             }
