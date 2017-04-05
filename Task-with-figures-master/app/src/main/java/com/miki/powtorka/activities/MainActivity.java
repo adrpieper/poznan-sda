@@ -83,7 +83,12 @@ public class MainActivity extends Activity {
 
         @Override
         public Fragment getItem(int position) {
-            return new MasterFragment();
+            if (position == 0)
+                return new FragmentCircle();
+            if (position == 1)
+                return new FragmentRectangle();
+            return new FragmentTriangle();
+
         }
 
         @Override
