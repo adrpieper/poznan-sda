@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends Activity {
 
@@ -75,10 +76,11 @@ public class MainActivity extends Activity {
 
     private List<Integer> generateNumbers() {
         List<Integer> numbers = new ArrayList<>();
-        numbers.add(5);
-        numbers.add(6);
-        numbers.add(2);
-        numbers.add(1);
+        Random random = new Random(100);
+        for(int i = 0 ; i < 5; i++) {
+            numbers.add(random.nextInt(10));
+        }
+
         return numbers;
     }
 
