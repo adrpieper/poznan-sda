@@ -43,5 +43,6 @@
         android:textSize="24sp"
         android:text="@{user.lastName}"/>
 
+
 </LinearLayout>
 </layout>

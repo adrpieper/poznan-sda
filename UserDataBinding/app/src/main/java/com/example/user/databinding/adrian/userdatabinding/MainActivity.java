@@ -13,5 +13,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setUser(new User("Jan", "Kowalski"));
+
     }
 }
