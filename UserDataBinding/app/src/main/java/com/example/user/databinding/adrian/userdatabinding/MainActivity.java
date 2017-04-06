@@ -12,7 +12,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.textView.setText("Mój text! - TEST");
-
+        binding.setUser(new User("Jan", "Kowalski"));
     }
 }
