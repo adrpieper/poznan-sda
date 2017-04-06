@@ -1,12 +1,15 @@
 package com.example.ps.adrian.personslist;
 
 import android.app.Activity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.example.ps.adrian.personslist.databinding.PersonViewBinding;
 
 import java.util.List;
 
@@ -20,7 +23,8 @@ public class MainActivity extends Activity {
         //PersonProvider provider = new PersonProvider();
         PersonProvider provider = new FilePersonProvider(getResources());
         List<Person> persons = provider.provide();
-        PersonAdapter personAdapter = new PersonAdapter(persons);
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        PersonAdapter personAdapter = new PersonAdapter(persons, layoutInflater);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(personAdapter);
     }
@@ -28,9 +32,11 @@ public class MainActivity extends Activity {
     private class PersonAdapter extends BaseAdapter {
 
         private List<Person> persons;
+        private LayoutInflater layoutInflater;
 
-        private PersonAdapter(List<Person> persons) {
+        private PersonAdapter(List<Person> persons, LayoutInflater layoutInflater) {
             this.persons = persons;
+            this.layoutInflater = layoutInflater;
         }
 
         @Override
@@ -50,17 +56,10 @@ public class MainActivity extends Activity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView textView;
-            if (convertView != null) {
-                textView = (TextView) convertView;
-            }
-            else {
-                textView = new TextView(MainActivity.this);
-            }
+            PersonViewBinding binding = PersonViewBinding.inflate(layoutInflater, parent, false);
             Person person = persons.get(position);
-            textView.setText((position+1)+" "+person.toString());
-
-            return textView;
+            binding.setPerson(person);
+            return binding.getRoot();
         }
     }
 }
