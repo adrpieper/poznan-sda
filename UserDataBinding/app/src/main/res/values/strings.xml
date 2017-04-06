@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UserDataBinding</string>
+    <string name="first_name">Imię</string>
+    <string name="last_name">Nazwisko</string>
 </resources>
