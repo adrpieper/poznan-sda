@@ -23,8 +23,7 @@ public class MainActivity extends Activity {
         //PersonProvider provider = new PersonProvider();
         PersonProvider provider = new FilePersonProvider(getResources());
         List<Person> persons = provider.provide();
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        PersonAdapter personAdapter = new PersonAdapter(persons, layoutInflater);
+        PersonAdapter personAdapter = new PersonAdapter(persons, getLayoutInflater());
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(personAdapter);
     }
