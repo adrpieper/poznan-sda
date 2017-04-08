@@ -5,4 +5,9 @@ package com.example.dagger.adrian.daggerexample.model;
  */
 
 public class Army {
+    private final Population population;
+
+    public Army(Population population) {
+        this.population = population;
+    }
 }
