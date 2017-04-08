@@ -23,7 +23,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/freeAmount"
+            android:id="@+id/freeAmountEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -31,7 +31,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/taxPercentage"
+            android:id="@+id/taxPercentageEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -39,6 +39,7 @@
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/taxAmountTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hello World!"
@@ -49,7 +50,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/netMountTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
