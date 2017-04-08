@@ -5,4 +5,9 @@ package com.example.dagger.adrian.daggerexample.model;
  */
 
 public class State {
+    private final Economy economy;
+
+    public State(Economy economy) {
+        this.economy = economy;
+    }
 }

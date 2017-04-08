@@ -5,9 +5,5 @@ package com.example.dagger.adrian.daggerexample.model;
  */
 
 public class Population {
-    private final Economy economy;
 
-    public Population(Economy economy) {
-        this.economy = economy;
-    }
 }
