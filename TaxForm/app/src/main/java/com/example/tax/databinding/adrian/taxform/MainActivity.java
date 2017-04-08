@@ -1,13 +1,84 @@
 package com.example.tax.databinding.adrian.taxform;
 
 import android.app.Activity;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+
+import com.example.tax.databinding.adrian.taxform.databinding.ActivityMainBinding;
 
 public class MainActivity extends Activity {
+
+    private TaxModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        model = new TaxModel();
+        binding.setModel(model);
+
+        binding.freeAmountEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                model.setFreeAmount(parseField(editable));
+            }
+        });
+
+        binding.amountEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                model.setAmount(parseField(editable));
+            }
+        });
+
+        binding.taxPercentageEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                model.setTaxPercentage(parseField(editable));
+            }
+        });
+
+    }
+
+    private double parseField(Editable editable) {
+        try {
+            return Double.parseDouble(editable.toString());
+        }catch (NumberFormatException e) {
+            return 0;
+        }
     }
 }
