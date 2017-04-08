@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -34,12 +36,20 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         paint.setColor(Color.BLUE);
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawCircle(CENTER, CENTER, RADIUS, paint);
         paint.setStrokeWidth(20);
         paint.setPathEffect(EFFECT);
         paint.setColor(Color.RED);
-        paint.setStyle(Paint.Style.STROKE);
-        canvas.drawCircle(CENTER, CENTER, RADIUS, paint);
+        paint.setShader(
+                new LinearGradient(
+                        canvas.getWidth()/2-RADIUS,
+                        CENTER-RADIUS,
+                        canvas.getWidth()/2+RADIUS,
+                        CENTER+RADIUS,
+                        Color.BLUE,
+                        Color.RED,
+                        Shader.TileMode.CLAMP
+                ));
+        canvas.drawCircle(canvas.getWidth()/2, CENTER, RADIUS, paint);
 
     }
 }
