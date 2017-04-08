@@ -55,8 +55,14 @@ public class MainActivity extends Activity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            PersonViewBinding binding = PersonViewBinding.inflate(layoutInflater, parent, false);
+            PersonViewBinding binding;
+            if (convertView == null) {
+                binding = PersonViewBinding.inflate(layoutInflater, parent, false);
+            }else {
+                binding = DataBindingUtil.getBinding(convertView) ;
+            }
             Person person = persons.get(position);
+
             binding.setPerson(person);
             return binding.getRoot();
         }
