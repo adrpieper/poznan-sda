@@ -20,51 +20,21 @@ public class MainActivity extends Activity {
         final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         model = new TaxModel();
         binding.setModel(model);
-
-        binding.freeAmountEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
+        binding.freeAmountEditText.addTextChangedListener(new TextWatcherAdapter() {
             @Override
             public void afterTextChanged(Editable editable) {
                 model.setFreeAmount(parseField(editable));
             }
         });
 
-        binding.amountEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
+        binding.amountEditText.addTextChangedListener(new TextWatcherAdapter() {
             @Override
             public void afterTextChanged(Editable editable) {
                 model.setAmount(parseField(editable));
             }
         });
 
-        binding.taxPercentageEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
+        binding.taxPercentageEditText.addTextChangedListener(new TextWatcherAdapter() {
 
             @Override
             public void afterTextChanged(Editable editable) {
@@ -81,4 +51,6 @@ public class MainActivity extends Activity {
             return 0;
         }
     }
+
+
 }
