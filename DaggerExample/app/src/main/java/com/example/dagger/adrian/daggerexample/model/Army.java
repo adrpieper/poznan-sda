@@ -1,5 +1,7 @@
 package com.example.dagger.adrian.daggerexample.model;
 
+import javax.inject.Inject;
+
 /**
  * Created by Adrian on 2017-04-08.
  */
@@ -9,6 +11,7 @@ public class Army {
     private final static int COST_PER_SOLDIER = 2;
     private final static double PERCENT_OF_ACTIVE_SOLDIERS = 0.1;
 
+    @Inject
     public Army(Population population) {
         this.population = population;
     }
