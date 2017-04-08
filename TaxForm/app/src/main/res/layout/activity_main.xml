@@ -42,18 +42,14 @@
             android:id="@+id/taxAmountTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@{model.taxAmount}"
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/netMountTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@{model.netAmount}"
             android:textSize="24sp" />
 
     </LinearLayout>

@@ -30,12 +30,12 @@ public class TaxModel extends BaseObservable {
 
     @Bindable
     public double getTaxAmount() {
-        return 0;
+        return 10;
     }
 
     @Bindable
     public double getNetAmount() {
-        return 0;
+        return 100;
     }
 
 }
