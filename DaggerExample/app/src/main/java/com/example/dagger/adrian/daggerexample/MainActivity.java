@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.dagger.adrian.daggerexample.dagger.DaggerStateComponent;
+import com.example.dagger.adrian.daggerexample.dagger.StateComponent;
 import com.example.dagger.adrian.daggerexample.model.State;
 
 public class MainActivity extends Activity {
@@ -17,7 +19,10 @@ public class MainActivity extends Activity {
         final Button calculateButton = (Button) findViewById(R.id.calculateButton);
         final TextView goldTextView = (TextView) findViewById(R.id.goldTextView);
 
-        final State state = DependencyResolver.resolve();
+        final StateComponent stateComponent = DaggerStateComponent.create();
+
+        final State state = stateComponent.state();
+
         goldTextView.setText(String.valueOf(state.getGold()));
 
         calculateButton.setOnClickListener(new View.OnClickListener() {

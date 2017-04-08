@@ -1,5 +1,6 @@
 package com.example.dagger.adrian.daggerexample.dagger;
 
+import com.example.dagger.adrian.daggerexample.model.Population;
 import com.example.dagger.adrian.daggerexample.model.State;
 
 import javax.inject.Singleton;
@@ -13,4 +14,5 @@ import dagger.Component;
 @Singleton
 public interface StateComponent {
     State state();
+    Population population();
 }
